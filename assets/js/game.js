@@ -1,7 +1,6 @@
 
 //function to start a new game
 var startGame = function () {
-    
     playerInfo.reset();
 
     for (var i = 0; i < enemyInfo.length; i++) {
@@ -146,10 +145,18 @@ var randomNumber = function (min, max) {
 /* END GAME FUNCTIONS */
 
 /* GAME INFORMATION / VARIABLES */
+var getPlayerName = function() {
+    var name = ""
 
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+    
+    return name;
+};
 // player information
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
