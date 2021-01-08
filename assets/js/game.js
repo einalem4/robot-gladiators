@@ -28,7 +28,7 @@ var endGame = function () {
     window.alert("The game has now ended. Let's see how you did!");
 
     if (playerInfo.health > 0) {
-        window.alert("Great job, you've survived the game! You now have a score of" + playerInfo.money + '.');
+        window.alert("Great job, you've survived the game! You now have a score of" +  playerInfo.money + '.');
     } else {
         window.alert("You've lost your robot in battle!");
     }
@@ -104,20 +104,18 @@ var fight = function (enemy) {
 // go to shop between battles function
 var shop = function () {
     var shopOptionPrompt = window.prompt(
-        'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
+        'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE.'
     );
 
+    shopOptionPrompt = parseInt(shopOptionPrompt);
     switch (shopOptionPrompt) {
-        case 'refill':
-        case 'REFILL':
+        case 1:
             playerInfo.refillHealth();
             break;
-        case 'upgrade':
-        case 'UPGRADE':
+        case 2:
             playerInfo.upgradeAttack();
             break;
-        case 'leave':
-        case 'LEAVE':
+        case 3:
             window.alert('Leaving the store.');
             break;
         default:
